@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import arcadePic from "./arcade.jpeg";
+import "./App.css";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [open, setOpen] = useState(false);
+  const clickHandler = () => {
+    setOpen((prev) => !prev);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={clickHandler}>Click me!</button>
+      {open && <img src={arcadePic} className="main-pic" alt="Divs+Kev" />}
     </div>
   );
-}
+};
 
 export default App;
